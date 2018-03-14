@@ -1,18 +1,32 @@
-# Basic Reason Template
+# bs-option
 
-Hello! This project allows you to quickly get started with Reason and BuckleScript. If you wanted a more sophisticated version, try the `react` template (`bsb -theme react -init .`).
+Some useful functions for dealing with `Some` and `None`.
 
-# Build
-```
-npm run build
-```
+# Getting Started
 
-# Build + Watch
+Install `bs-option` using yarn:
 
-```
-npm run start
+```bash
+yarn add bs-option
 ```
 
+Then add `bs-option` to `bs-dependencies` in `bsconfig.json`.
 
-# Editor
-If you use `vscode`, Press `Windows + Shift + B` it will build automatically
+# Usage
+
+```
+let someValue = Some(42);
+let fourtyTwo = Option.unwrap(someValue);
+```
+
+# API
+
+- `Option.isSome(o)` - returns `true` if `o` is `Some(a)`
+- `Option.isNone(o)` - returns `true` if `o` is `None`
+- `Option.unwrap(o)` - returns `a` in `Some(a)` or raises `Option.UnexpectedNone`
+- `Option.expect(o, message)` - returns `a` in `Some(a)` or raises `Option.ExpectedSome(message)`
+- `Option.map(o, f)` - returns `Some(f(a))` for `Some(a)`, or `None` if `o` is `None`
+- `Option.unwrapOr(o, default)` - same as `unwrap` but returns `default` if `o` is `None`
+- `Option.unwrapOrElse(o, f)` - same as `unwrap` but returns the result of the application of `f` if `o` is `None`
+- `Option.mapOr(o, default)` - same as `map` but returns `Some(default)` if `o` is `None`
+- `Option.mapOrElse(o, f)` - same as `map` but returns `Some(f())` if `o` is `None`
