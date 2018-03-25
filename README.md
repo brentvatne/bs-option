@@ -2,6 +2,8 @@
 
 Some useful functions for dealing with `Some` and `None`.
 
+> Warning! You probably don't need this if you're using a version of BuckleScript that includes Belt and the Option module. See more information in this PR: https://github.com/BuckleScript/bucklescript/pull/2622
+
 # Getting Started
 
 Install `bs-option` using yarn:
